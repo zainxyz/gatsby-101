@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react';
 
-import Header from "../components/header"
-import Container from "../components/container"
+import Header from '../components/header';
+import Container from '../components/container';
 
 const Contact = () => {
   return (
@@ -12,7 +12,7 @@ const Contact = () => {
         <a href="mailto:me@example.com">me@example.com</a>
       </p>
     </Container>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

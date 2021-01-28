@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react';
 
-import Post from "./post"
+import Post from './post';
 
 const PostsList = ({ postsList }) => {
   return (
@@ -9,7 +9,7 @@ const PostsList = ({ postsList }) => {
         <Post key={post.id} {...post} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default PostsList
+export default PostsList;

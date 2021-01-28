@@ -1,21 +1,21 @@
-import React, { useMemo } from "react"
-import { graphql } from "gatsby"
+import React, { useMemo } from 'react';
+import { graphql } from 'gatsby';
 
-import Container from "../components/container"
-import Header from "../components/header"
-import PostsList from "../components/posts-list"
+import Container from '../components/container';
+import Header from '../components/header';
+import PostsList from '../components/posts-list';
 
 const Home = props => {
   // Pull in title from the given page query data
-  const { data } = props
+  const { data } = props;
   const {
     site: {
       siteMetadata: { homeTitle },
     },
     allMarkdownRemark,
-  } = data
+  } = data;
 
-  const { edges: posts, totalCount: totalPosts } = allMarkdownRemark
+  const { edges: posts, totalCount: totalPosts } = allMarkdownRemark;
 
   const postsList = useMemo(
     () =>
@@ -27,11 +27,11 @@ const Home = props => {
         title: node.frontmatter.title,
       })),
     [posts]
-  )
+  );
 
   return (
     <Container>
-      <div style={{ color: "purple" }}>
+      <div style={{ color: 'purple' }}>
         <Header title={homeTitle} />
         <p>What a world.</p>
         <img src="https://source.unsplash.com/random/400x200" alt="" />
@@ -40,8 +40,8 @@ const Home = props => {
         <PostsList postsList={postsList} />
       </div>
     </Container>
-  )
-}
+  );
+};
 
 /**
  * PageQuery for pages
@@ -70,6 +70,6 @@ export const query = graphql`
       totalCount
     }
   }
-`
+`;
 
-export default Home
+export default Home;

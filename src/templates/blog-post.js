@@ -1,10 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Container from "../components/container"
+import Container from '../components/container';
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Container>
@@ -13,8 +13,8 @@ const BlogPost = ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Container>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query($slug: String!) {
@@ -25,6 +25,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default BlogPost
+export default BlogPost;

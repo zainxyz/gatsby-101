@@ -1,7 +1,7 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Container from "../components/container"
+import Container from '../components/container';
 
 const MyFiles = ({ data }) => {
   // console.log(data)
@@ -30,8 +30,8 @@ const MyFiles = ({ data }) => {
         </tbody>
       </table>
     </Container>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query MyFilesQuery {
@@ -46,6 +46,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default MyFiles
+export default MyFiles;

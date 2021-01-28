@@ -7,23 +7,23 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Gatsby 101 tutorial",
-    homeTitle: "Hello Gatsby!",
+    title: 'Gatsby 101 tutorial',
+    homeTitle: 'Hello Gatsby!',
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "src",
+        name: 'src',
         path: `${__dirname}/src/`,
       },
     },
-    "gatsby-transformer-remark",
+    'gatsby-transformer-remark',
     {
-      resolve: "gatsby-plugin-typography",
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: "src/utils/typography",
+        pathToConfigModule: 'src/utils/typography',
       },
     },
   ],
-}
+};

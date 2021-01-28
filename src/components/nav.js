@@ -1,7 +1,7 @@
-import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
-import styles from "./nav.module.css"
+import styles from './nav.module.css';
 
 const Nav = ({ items = [] }) => {
   // `use`Hooks
@@ -13,13 +13,13 @@ const Nav = ({ items = [] }) => {
         }
       }
     }
-  `)
+  `);
 
   const {
     site: {
       siteMetadata: { title },
     },
-  } = data
+  } = data;
 
   return (
     <header className={styles.header}>
@@ -32,14 +32,14 @@ const Nav = ({ items = [] }) => {
             <li className={styles.navItem} key={item.title}>
               <Link to={item.to}>{item.title}</Link>
             </li>
-          )
+          );
         })}
       </ul>
     </header>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
 
 // const MyNav = props => {
 //   /**

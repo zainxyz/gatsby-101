@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react';
 
-import Container from "../components/container"
-import Header from "../components/header"
+import Container from '../components/container';
+import Header from '../components/header';
 
-import styles from "./about-css-modules.module.css"
+import styles from './about-css-modules.module.css';
 
 const User = ({ avatar, excerpt, username }) => {
   return (
@@ -14,8 +14,8 @@ const User = ({ avatar, excerpt, username }) => {
         <p className={styles.excerpt}>{excerpt}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const AboutCSSModules = () => {
   return (
@@ -33,7 +33,7 @@ const AboutCSSModules = () => {
         excerpt="I'm Daniela Dewitt. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
       />
     </Container>
-  )
-}
+  );
+};
 
-export default AboutCSSModules
+export default AboutCSSModules;
