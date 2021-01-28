@@ -23,6 +23,7 @@ const Home = props => {
         date: node.frontmatter.date,
         excerpt: node.excerpt,
         id: node.id,
+        slug: node.fields.slug,
         title: node.frontmatter.title,
       })),
     [posts]
@@ -60,6 +61,9 @@ export const query = graphql`
           frontmatter {
             date
             title
+          }
+          fields {
+            slug
           }
         }
       }
