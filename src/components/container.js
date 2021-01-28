@@ -20,6 +20,10 @@ const Container = props => {
         to: "/contact",
         title: "Contact",
       },
+      {
+        to: "/my-files",
+        title: "My Files",
+      },
     ],
     []
   )
