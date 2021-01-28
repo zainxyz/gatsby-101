@@ -5,8 +5,6 @@ import Header from "../components/header"
 
 import styles from "./about-css-modules.module.css"
 
-console.log(styles)
-
 const User = ({ avatar, excerpt, username }) => {
   return (
     <div className={styles.user}>

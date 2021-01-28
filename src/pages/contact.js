@@ -1,15 +1,17 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Header from "../components/header"
+import Container from "../components/container"
 
 const Contact = () => {
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <Header title="Drop me a line" />
+    <Container>
+      <Header title="Contact Gatsby" />
       <p>Get in touch with me!</p>
-    </div>
+      <p>
+        <a href="mailto:me@example.com">me@example.com</a>
+      </p>
+    </Container>
   )
 }
 
