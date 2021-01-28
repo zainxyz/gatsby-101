@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { graphql } from "gatsby"
 
-import Header from "../components/header"
 import Container from "../components/container"
+import Header from "../components/header"
+import PostsList from "../components/posts-list"
 
 const Home = props => {
   // Pull in title from the given page query data
@@ -11,7 +12,21 @@ const Home = props => {
     site: {
       siteMetadata: { homeTitle },
     },
+    allMarkdownRemark,
   } = data
+
+  const { edges: posts, totalCount: totalPosts } = allMarkdownRemark
+
+  const postsList = useMemo(
+    () =>
+      posts.map(({ node }) => ({
+        date: node.frontmatter.date,
+        excerpt: node.excerpt,
+        id: node.id,
+        title: node.frontmatter.title,
+      })),
+    [posts]
+  )
 
   return (
     <Container>
@@ -19,6 +34,9 @@ const Home = props => {
         <Header title={homeTitle} />
         <p>What a world.</p>
         <img src="https://source.unsplash.com/random/400x200" alt="" />
+        <hr />
+        <h5>{totalPosts} Posts</h5>
+        <PostsList postsList={postsList} />
       </div>
     </Container>
   )
@@ -33,6 +51,19 @@ export const query = graphql`
       siteMetadata {
         homeTitle
       }
+    }
+    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            date
+            title
+          }
+        }
+      }
+      totalCount
     }
   }
 `
