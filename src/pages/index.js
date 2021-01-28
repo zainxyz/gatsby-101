@@ -33,8 +33,8 @@ const Home = props => {
     <Container>
       <div style={{ color: 'purple' }}>
         <Header title={homeTitle} />
-        <p>What a world.</p>
-        <img src="https://source.unsplash.com/random/400x200" alt="" />
+        {/* <p>What a world.</p>
+        <img src="https://source.unsplash.com/random/400x200" alt="" /> */}
         <hr />
         <h5>{totalPosts} Posts</h5>
         <PostsList postsList={postsList} />
