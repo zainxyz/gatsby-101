@@ -1,9 +1,26 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 import styles from "./nav.module.css"
 
-const Nav = ({ items = [], title = "Gatsby 101" }) => {
+const Nav = ({ items = [] }) => {
+  // `use`Hooks
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  const {
+    site: {
+      siteMetadata: { title },
+    },
+  } = data
+
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.homeLink}>
@@ -23,3 +40,25 @@ const Nav = ({ items = [], title = "Gatsby 101" }) => {
 }
 
 export default Nav
+
+// const MyNav = props => {
+//   /**
+//    * StaticQuery for Components where as PageQuery for Pages
+//    */
+//   return (
+//     <StaticQuery
+//       query={graphql`
+//         query {
+//           site {
+//             siteMetadata {
+//               title
+//             }
+//           }
+//         }
+//       `}
+//       render={data => <Nav data={data} {...props} />}
+//     />
+//   )
+// }
+//
+// export default MyNav

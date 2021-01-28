@@ -6,6 +6,10 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Gatsby 101 tutorial",
+    homeTitle: "Hello Gatsby!",
+  },
   plugins: [
     {
       resolve: "gatsby-plugin-typography",
