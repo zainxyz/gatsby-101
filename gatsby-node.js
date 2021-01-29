@@ -4,6 +4,9 @@ const { createFilePath } = require('gatsby-source-filesystem');
 exports.onCreateNode = ({ actions, node, getNode }) => {
   const { createNodeField } = actions;
 
+  // console.log('node :', node?.sourceInstanceName);
+
+  // if (node?.sourceInstanceName === 'posts') {
   if (node.internal.type === 'MarkdownRemark') {
     // const fileNode = getNode(node.parent)
     // console.log("\n", fileNode.relativePath)
@@ -11,11 +14,13 @@ exports.onCreateNode = ({ actions, node, getNode }) => {
     // const filePath = createFilePath({ node, getNode, basePath: "posts" })
     // console.log("\n", filePath)
 
+    // Turn Markdown files in `src/posts` into `posts/slug`
     const slug = createFilePath({ node, getNode, basePath: 'posts' });
+    // Creates a new query'able field with the name of 'slug'
     createNodeField({
       node,
       name: 'slug',
-      value: slug,
+      value: `/post${slug}`,
     });
   }
 };
@@ -36,8 +41,8 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `);
-  console.log('result :', result);
-  console.log(JSON.stringify(result, null, 4));
+
+  console.log(JSON.stringify(result, null, 2));
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({

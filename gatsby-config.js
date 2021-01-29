@@ -10,14 +10,21 @@ module.exports = {
     author: 'Gatsby DEV',
     description: 'A simple starter website to learn the basics of GatsbyJS',
     homeTitle: 'Hello Gatsby!',
-    title: 'Gatsby 101 tutorial',
+    title: 'Gatsby 101',
   },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'src',
-        path: `${__dirname}/src/`,
+        name: 'posts',
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'components',
+        path: `${__dirname}/src/components/`,
       },
     },
     'gatsby-transformer-remark',
